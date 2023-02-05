@@ -1,12 +1,14 @@
 ﻿using System;
 
-static void Main(string[] args)
+class MainClass
 {
-    string MyName;
-    MyName = "June";
-    Console.WriteLine(MyName);
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Привет,\n мир!");
+
+        Console.Write('\x23');
 
 
 
-
+    }
 }
