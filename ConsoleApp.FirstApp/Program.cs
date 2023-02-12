@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 class MainClass
 {
@@ -7,13 +8,18 @@ class MainClass
 
         Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
 
-        bool switcherend = true;
-        while (switcherend)
+        string[] favcolors = new string[3];
+
+        for (int i = 0; i < favcolors.Length; i++)
         {
-            
-            var color=Console.ReadLine();
-            if (color != "stop" )
-            { 
+            Console.WriteLine("Введите любимый цвет номер {0}", i + 1);
+            favcolors[i] = Console.ReadLine();
+        }
+
+        foreach (var color in favcolors)
+        {
+
+
             switch (color)
             {
                 case "red":
@@ -35,7 +41,7 @@ class MainClass
 
                     Console.WriteLine("Your color is cyan!");
                     break;
-                
+
 
                 default:
                     Console.BackgroundColor = ConsoleColor.Cyan;
@@ -44,9 +50,17 @@ class MainClass
                     Console.WriteLine("Your color is cyan!");
                     break;
             }
-            Console.WriteLine("Напишите другой цвет на английском с маленькой буквы");
-            }
-            else { switcherend=false; }
+
+
         }
     }
 }
+     
+            
+           
+         
+   
+   
+       
+
+   
