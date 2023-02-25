@@ -2,67 +2,31 @@
 
 class MainClass
 {
-
-    static string ShowColor(int i)
+    static void Main(string[] args)
     {
-        Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
-        var color = Console.ReadLine();
+        Console.WriteLine("Напишите что-то");
+        var str = Console.ReadLine();
 
-        switch (color)
-        {
-            case "red":
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.Black;
+        Console.WriteLine("Укажите глубину эха");
+        var deep = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Your color is red!");
-                break;
+        Echo(str, deep);
 
-            case "green":
-                Console.BackgroundColor = ConsoleColor.Green;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is green!");
-                break;
-            case "cyan":
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is cyan!");
-                break;
-            default:
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.ForegroundColor = ConsoleColor.Red;
-
-                Console.WriteLine("Your color is yellow!");
-                break;
-        }
-        return color;
+        Console.ReadKey();
     }
 
-    public static void Main(string[] args)
+    static void Echo(string saidword, int deep)
     {
-
-        var (name, age) = ("Евгения", 27);
-
-        Console.WriteLine("Мое имя: {0}", name);
-        Console.WriteLine("Мой возраст: {0}", age);
-
-        Console.Write("Введите имя: ");
-        name = Console.ReadLine();
-        Console.Write("Введите возрас с цифрами:");
-        age = Convert.ToInt32(Console.ReadLine());
-
-        Console.WriteLine("Ваше имя: {0}", name);
-        Console.WriteLine("Ваш возраст: {0}", age);
-        string[] favcolor = new string[3] ;
-
-        for (int i=0; i<favcolor.Length;i++)
+        var modif = saidword;
+        if (modif.Length > 2)
         {
-            ShowColor(i);
-
-
+            modif = modif.Remove(0, 2);
         }
+        Console.WriteLine("..... " + modif);
 
-
+        if (deep > 1)
+        {
+            Echo(modif, deep - 1);
+        }
     }
 }
